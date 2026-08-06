@@ -3,179 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS4 Exploit Host</title>
-    <style>
-        :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --accent-color: #0070d1;
-            --accent-hover: #0056a3;
-            --text-color: #ffffff;
-            --subtext-color: #aaa;
-            --success-color: #4caf50;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-
-        h1 {
-            margin-top: 0;
-            color: var(--text-color);
-            font-size: 1.8rem;
-        }
-
-        p {
-            color: var(--subtext-color);
-            font-size: 0.95rem;
-        }
-
-        #status-box {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: rgba(255,255,255,0.05);
-            font-weight: bold;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-        }
-
-        .btn-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 15px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .offline-badge {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 5px 12px;
-            font-size: 0.8rem;
-            border-radius: 20px;
-            background-color: rgba(76, 175, 80, 0.2);
-            color: var(--success-color);
-        }
-    </style>
+    <title>علاء عودة | صيانة وتعديل أجهزة البلايستيشن</title>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>مضيف ثغرات PlayStation 4</h1>
-        <p>صفحة التعديل السريعة لمشغلات PS4 (تدعم الكاش والأوفلاين)</p>
-
-        <div id="status-box">جاري فحص حالة الكاش...</div>
-
-        <div class="btn-grid">
-            <button class="btn" onclick="loadPayload('goldhen')">GoldHEN</button>
-            <button class="btn" onclick="loadPayload('hen')">HEN</button>
-            <button class="btn" onclick="loadPayload('app2usb')">App2USB</button>
-            <button class="btn" onclick="loadPayload('dumper')">Game Dumper</button>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-brands fa-playstation logo-icon"></i>
+                <div class="logo-text">
+                    <h1>علاء عودة</h1>
+                    <span>صيانة وتعديل أجهزة البلايستيشن</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active">الرئيسية</a></li>
+                    <li><a href="#host">الهوست التفاعلي</a></li>
+                    <li><a href="#services">الخدمات</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/96176663456" target="_blank" class="btn btn-header">
+                <i class="fa-brands fa-whatsapp"></i> تواصل معنا
+            </a>
         </div>
+    </header>
 
-        <div id="offline-status" class="offline-badge" style="display: none;">
-            ✓ الصفحات والمطوّرات محفوظة للاستخدام بدون إنترنت
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="badge"><i class="fa-solid fa-bolt"></i> خيارك الأفضل للصيانة والتعديل</span>
+            <h2>احترافية ودقة في صيانة وتعديل أجهزة PlayStation</h2>
+            <p>نقدم أفضل الحلول البرمجية والحديثة لتعديل أجهزة PS4 وروافع الأداء والصيانة السريعة مع ضمان الجودة.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/96176663456" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i> حجز خدمة الآن
+                </a>
+                <a href="#host" class="btn btn-outline">
+                    <i class="fa-solid fa-gamepad"></i> استكشف الهوست
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        const statusBox = document.getElementById('status-box');
-        const offlineBadge = document.getElementById('offline-status');
+    <!-- Interactive Host Section -->
+    <section id="host" class="host-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-server"></i> Alaa Odeh PS4 Host</h2>
+                <p>متوافق مع التحديثات: 4.00 / 4.05 / 4.50 / 4.55 / 5.05 / 6.72 / 7.02 / 9.00</p>
+            </div>
 
-        // تسجيل الـ Service Worker لتفعيل الكاش والأوفلاين
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // إنشاء كود Service Worker ديناميكيًا من خلال Blob
-                const swCode = `
-                    const CACHE_NAME = 'ps4-exploit-v1';
-                    const ASSETS = [
-                        './',
-                        './index.html'
-                    ];
+            <div class="host-card">
+                <div class="host-header">
+                    <div class="host-status">
+                        <span class="pulse-dot"></span>
+                        <span id="conn-status">جاري الاتصال بالخادم...</span>
+                    </div>
+                    <div class="host-url">https://ala-a-odeh.github.io/</div>
+                </div>
 
-                    self.addEventListener('install', (e) => {
-                        e.waitUntil(
-                            caches.open(CACHE_NAME).then((cache) => {
-                                return cache.addAll(ASSETS);
-                            }).then(() => self.skipWaiting())
-                        );
-                    });
+                <div class="host-actions">
+                    <button class="host-btn btn-jailbreak" onclick="triggerExploit('Jailbreak')">
+                        <i class="fa-solid fa-lock-open"></i> Jailbreak
+                    </button>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="hen_type" value="HEN" checked>
+                            <span class="radio-custom"></span> HEN
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="hen_type" value="HenB">
+                            <span class="radio-custom"></span> HenB
+                        </label>
+                    </div>
+                    <button class="host-btn btn-auto" onclick="triggerExploit('Auto Jailbreak')">
+                        <i class="fa-solid fa-bolt-lightning"></i> Auto Jailbreak
+                    </button>
+                </div>
 
-                    self.addEventListener('activate', (e) => {
-                        e.waitUntil(self.clients.claim());
-                    });
+                <div class="host-grid">
+                    <!-- Features -->
+                    <div class="host-box features-box">
+                        <h3><i class="fa-solid fa-star"></i> مميزات الهوست</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> تفعيل HEN و HenB بسهولة</li>
+                            <li><i class="fa-solid fa-check-circle"></i> دعم التحديثات حتى 9.00</li>
+                            <li><i class="fa-solid fa-check-circle"></i> واجهة عربية سهلة الاستخدام</li>
+                            <li><i class="fa-solid fa-check-circle"></i> تحديثات مستمرة ودعم فني</li>
+                        </ul>
+                    </div>
 
-                    self.addEventListener('fetch', (e) => {
-                        e.respondWith(
-                            caches.match(e.request).then((cachedResponse) => {
-                                return cachedResponse || fetch(e.request);
-                            })
-                        );
-                    });
-                `;
+                    <!-- System Info -->
+                    <div class="host-box info-box">
+                        <h3><i class="fa-solid fa-circle-info"></i> معلومات الجهاز</h3>
+                        <div class="info-row">
+                            <span>الحالة:</span>
+                            <span class="status-ready"><i class="fa-solid fa-check"></i> جاهز</span>
+                        </div>
+                        <div class="info-row">
+                            <span>النوع:</span>
+                            <span>PlayStation 4</span>
+                        </div>
+                        <div class="info-row">
+                            <span>البرامج الثابتة:</span>
+                            <span id="fw-ver">-.-.-</span>
+                        </div>
+                        <div class="info-row">
+                            <span>الاتصال:</span>
+                            <span class="status-offline" id="net-status"><i class="fa-solid fa-xmark"></i> غير متصل</span>
+                        </div>
+                    </div>
+                </div>
 
-                const blob = new Blob([swCode], { type: 'application/javascript' });
-                const swUrl = URL.createObjectURL(blob);
+                <div class="host-footer">
+                    <span>استخدامك لهذا الهوست على مسؤوليتك الخاصة</span>
+                    <span>علاء عودة جميع الحقوق محفوظة © 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                navigator.serviceWorker.register(swUrl)
-                    .then((reg) => {
-                        statusBox.innerText = 'جاهز للاستخدام! تم حفظ الكاش ليعمل بدون إنترنت.';
-                        offlineBadge.style.display = 'inline-block';
-                    })
-                    .catch((err) => {
-                        statusBox.innerText = 'جاهز (لم يتم تفعيل الكاش التلقائي).';
-                        console.error('Service Worker Failed:', err);
-                    });
-            });
-        } else {
-            statusBox.innerText = 'متصفحك لا يدعم تخزين الكاش التلقائي.';
-        }
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>خدماتنا الاحترافية</h2>
+                <p>نقدم حلولاً شاملة ومتكاملة لأجهزة البلايستيشن بأعلى معايير الجودة</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>تعديل PS4 الاحترافي</h3>
+                    <p>تعديل جميع الإصدارات المدعومة بآمان وبأحدث الملفات لضمان أعلى استقرار للنظام.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <h3>صيانة الأعطال</h3>
+                    <p>إصلاح المشاكل البرمجية والكهربائية وشاشات الموت وأعطال المذربورد والدائرة الكهربائية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon"><i class="fa-solid fa-fan"></i></div>
+                    <h3>تنظيف وتبريد الجهاز</h3>
+                    <p>تنظيف كامل للغبار وتبديل المعجون الحراري (Thermal Paste) لتقليل حرارة وصوت الجهاز.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3>تثبيت الألعاب</h3>
+                    <p>توفير وتثبيت أحدث ألعاب PS4 و PS5 بالإضافة للتحديثات والملفات الإضافية (DLCs).</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // دالة تشغيل الثغرات (ضع أكواد الثغرة الخاصة بك هنا)
-        function loadPayload(name) {
-            statusBox.innerText = 'جاري تحميل ' + name + '... برجاء الانتظار';
-            
-            // هنا يتم استدعاء الملفات الخاصة بكل payload حسب مشروعك
-            setTimeout(() => {
-                statusBox.innerText = 'تم إرسال ' + name + ' بنجاح!';
-            }, 1000);
-        }
-    </script>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>من هو علاء عودة؟</h2>
+                <p>مركز متخصص في صيانة، برمجة، وتعديل أجهزة البلايستيشن. نعتمد على أحدث التقنيات والمعدات التشخيصية لتقديم خدمة سريعة وموثوقة لجميع عملائنا.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h4>+5</h4>
+                        <span>سنوات خبرة</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <span>رضا العملاء</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4>+1000</h4>
+                        <span>جهاز تم صيانته</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>هل لديك أي استفسار أو تريد صيانة جهازك؟</h2>
+                <p>تواصل معنا مباشرة عبر الهاتف أو الواتساب للحصول على استشارة فورية.</p>
+                <div class="contact-details">
+                    <a href="tel:+96176663456" class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+961 76 66 34 56</span>
+                    </a>
+                    <a href="mailto:abouiman1990@gmail.com" class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>abouiman1990@gmail.com</span>
+                    </a>
+                </div>
+                <a href="https://wa.me/96176663456" target="_blank" class="btn btn-whatsapp-large">
+                    <i class="fa-brands fa-whatsapp"></i> مراسلة عبر الواتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>جميع الحقوق محفوظة © 2026 | علاء عودة لصيانة وتعديل أجهزة البلايستيشن</p>
+            <div class="footer-credit">تم التطوير والتصميم بواسطة <span>علاء عودة</span></div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/96176663456" target="_blank" class="float-whatsapp" title="تواصل عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
 </body>
-</html>
+                                </html>
+                                
