@@ -1,4 +1,0 @@
-[submodule "FakeDns"]
-	path = fdns
-	url = https://github.com/Al-Azif/FakeDns.git
-	shallow = true
