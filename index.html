@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaa Odeh PS4 Host</title>
+    <!-- استدعاء خط Cairo للغة العربية والأرقام -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- استدعاء أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: #000 url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
+        }
+
+        /* --- الهيدر العلوي --- */
+        header {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ps-logo {
+            font-size: 42px;
+            color: #f3af00;
+        }
+
+        .brand-title {
+            text-align: right;
+        }
+
+        .brand-title h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.1;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .brand-title p {
+            font-size: 16px;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(10, 15, 30, 0.7);
+            border: 1px solid #00d2ff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        .contact-box i {
+            font-size: 24px;
+            color: #f3af00;
+        }
+
+        .contact-text {
+            text-align: left;
+        }
+
+        .contact-text span {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .contact-text strong {
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: 1px;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* --- الحاوية الرئيسية (الكارت الأوسط) --- */
+        .main-container {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(8, 14, 28, 0.88);
+            border: 1px solid rgba(0, 140, 255, 0.4);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 0 35px rgba(0, 100, 255, 0.25);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loader-status {
+            color: #ff3366;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .url-banner {
+            background: #030814;
+            border: 1px solid #00aaff;
+            border-radius: 8px;
+            padding: 10px;
+            color: #00d2ff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            box-shadow: inset 0 0 10px rgba(0, 170, 255, 0.3);
+        }
+
+        .host-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .firmware-support {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* --- الأزرار --- */
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .btn-jailbreak {
+            background: linear-gradient(180deg, #d49410 0%, #8a5e00 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(212, 148, 16, 0.4);
+        }
+
+        .btn-auto {
+            background: linear-gradient(180deg, #a80f25 0%, #5e000e 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(168, 15, 37, 0.4);
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .radio-label input[type="radio"] {
+            accent-color: #00d2ff;
+        }
+
+        /* --- الشبكة السفلية (المميزات ومعلومات الجهاز) --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .card {
+            border-radius: 10px;
+            padding: 15px;
+            background: rgba(4, 9, 20, 0.6);
+        }
+
+        .card-features {
+            border: 1px solid #a80f25;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-info {
+            border: 1px solid #00aaff;
+        }
+
+        .card-header {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-features .card-header {
+            color: #ff3366;
+            justify-content: flex-end;
+        }
+
+        .card-info .card-header {
+            color: #00d2ff;
+            justify-content: flex-start;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            font-size: 13px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ddd;
+        }
+
+        .feature-list li i {
+            color: #ff3366;
+            font-size: 12px;
+        }
+
+        .info-table {
+            width: 100%;
+            font-size: 13px;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 4px 0;
+        }
+
+        .info-table td.label {
+            color: #aaa;
+            text-align: right;
+        }
+
+        .info-table td.value {
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .val-ready { color: #00ff66; }
+        .val-offline { color: #ff3366; }
+
+        /* --- الفوتر السفلي --- */
+        footer {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px 5px;
+            font-size: 12px;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        footer span strong {
+            color: #f3af00;
+        }
+
+        /* تجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            header, footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر العلوي -->
+    <header>
+        <div class="brand-section">
+            <i class="fab fa-playstation ps-logo"></i>
+            <div class="brand-title">
+                <h1>علاء عوده</h1>
+                <p>صيانة وتعديل أجهزة بلايستيشن</p>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <i class="fas fa-phone-alt"></i>
+            <div class="contact-text">
+                <span>للتواصل والاستفسار</span>
+                <strong>+961 76 66 34 56</strong>
+            </div>
+        </div>
+    </header>
+
+    <!-- الحاوية الرئيسية (الكارت الأوسط) -->
+    <div class="main-container">
+        <div class="loader-status">
+            <i class="fas fa-spinner fa-spin"></i> جاري الاتصال بالخادم...
+        </div>
+
+        <div class="url-banner">
+            https://ala-a-odeh.github.io/
+        </div>
+
+        <h2 class="host-title">Alaa Odeh PS4 Host</h2>
+        <p class="firmware-support">متوافق مع: 4.00 / 4.05 / 4.50 / 4.55 / 5.05 / 6.72 / 7.02 / 9.00</p>
+
+        <!-- أزرار التحكم -->
+        <div class="action-buttons">
+            <button class="btn btn-jailbreak">
+                Jailbreak <i class="fas fa-lock"></i>
+            </button>
+
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="hen_type" checked> HEN
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="hen_type"> HenB
+                </label>
+            </div>
+
+            <button class="btn btn-auto">
+                Auto Jailbreak <i class="fas fa-bolt"></i>
+            </button>
+        </div>
+
+        <!-- معلومات الجهاز والمميزات -->
+        <div class="info-grid">
+            <!-- كارت المميزات -->
+            <div class="card card-features">
+                <div class="card-header">
+                    مميزات الهوست <i class="fas fa-star"></i>
+                </div>
+                <ul class="feature-list">
+                    <li>تفعيل HEN و HenB بـسهولة <i class="fas fa-check"></i></li>
+                    <li>دعم التحديثات حتى 9.00 <i class="fas fa-check"></i></li>
+                    <li>واجهة عربية سهلة الاستخدام <i class="fas fa-check"></i></li>
+                    <li>تحديثات مستمرة ودعم فني <i class="fas fa-check"></i></li>
+                </ul>
+            </div>
+
+            <!-- كارت معلومات الجهاز -->
+            <div class="card card-info">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i> معلومات الجهاز
+                </div>
+                <table class="info-table">
+                    <tr>
+                        <td class="label"><i class="fas fa-check-circle" style="color:#00ff66;"></i> الحالة:</td>
+                        <td class="value val-ready">جاهز</td>
+                    </tr>
+                    <tr>
+                        <td class="label"><i class="fas fa-cube"></i> النوع:</td>
+                        <td class="value">PlayStation 4</td>
+                    </tr>
+                    <tr>
+                        <td class="label"><i class="fas fa-microchip"></i> البرامج الثابتة:</td>
+                        <td class="value">-.-.-</td>
+                    </tr>
+                    <tr>
+                        <td class="label"><i class="fas fa-times-circle" style="color:#ff3366;"></i> الاتصال:</td>
+                        <td class="value val-offline">غير متصل</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- الفوتر السفلي -->
+    <footer>
+        <span><i class="fas fa-shield-alt"></i> استخدامك لهذا الهوست على مسؤوليتك الخاصة</span>
+        <span>علاء عوده جميع الحقوق محفوظة © 2024</span>
+        <span>تم التصميم والتطوير بواسطة <strong>علاء عوده</strong> <i class="fas fa-crown"></i></span>
+    </footer>
+
+</body>
+</html>
